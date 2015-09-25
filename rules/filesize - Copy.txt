@@ -1,0 +1,13 @@
+
+
+
+<in>
+	<greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</greaterThan>

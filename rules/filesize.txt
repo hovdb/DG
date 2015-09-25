@@ -1,0 +1,301 @@
+
+
+
+<in>
+	<greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="10<greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan><greaterThan>
+		<evtDestFileSize/>
+		<int64 value="1073741824"/>
+	</greaterThan>
+	
+	<greaterThan>
+		<evtSrcFileSize/>
+		<int64 value="1073741824"/>
+</erfwsdddddddddddfsgreaterThan>73741824"/>
+</erfwsdddddddddddfsgreaterThan>
