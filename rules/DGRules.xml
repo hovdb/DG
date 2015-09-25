@@ -1,0 +1,816 @@
+
+<ArrayOfRule xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Low</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>MP - Sendmail External</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) - PHI high to GMail</Name>
+        <Description>Block all PHI-High emails to GMail (unapproved) recipients.</Description>
+        <Text>&lt;and&gt;
+     &lt;or&gt;
+          &lt;in&gt;
+               &lt;evtSrcFilePolicyTag /&gt;
+                    &lt;list&gt;
+                         &lt;string value="privacy" /&gt;
+                    &lt;/list&gt;
+          &lt;/in&gt;
+          &lt;in&gt;
+               &lt;evtBufferPolicyTag/&gt;
+                    &lt;list&gt;
+                         &lt;string value="privacy" /&gt;
+                    &lt;/list&gt;
+          &lt;/in&gt;
+     &lt;/or&gt;
+     &lt;like expr="%gmail.com%"&gt;
+          &lt;evtMailRecipients /&gt;
+     &lt;/like&gt;
+     &lt;equal&gt;
+          &lt;evtOperationType /&gt;
+          &lt;constOpSendMail /&gt;
+     &lt;/equal&gt;
+&lt;/and&gt;</Text>
+        <AlertLevel>2</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>All</SupportedPlatform>
+        <RulePriority>31400</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>bc2730b6-4029-42d8-86c5-489c7bbfaaad</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>MP - Printscreen - screen capture</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) Confidential PrintScreen</Name>
+        <Description>Vault the clipboard when a confidential file is printscreened</Description>
+        <Text>&lt;and&gt;
+  &lt;equal&gt;
+    &lt;activeVaultRuleNames /&gt;
+    &lt;string value="(BHOVD) Data Vault" /&gt;
+  &lt;/equal&gt;
+
+  &lt;or&gt;
+    &lt;in&gt;
+      &lt;evtOperationType /&gt;
+      &lt;list&gt;
+        &lt;!--Alt+Print Screen keys.--&gt;
+        &lt;constOpAdePrintProcess /&gt;
+        &lt;!-- Print Screen key --&gt;
+        &lt;constOpAdePrintScreen /&gt;
+      &lt;/list&gt;
+    &lt;/in&gt;
+    &lt;and&gt;
+      &lt;equal&gt;
+        &lt;evtOperationType /&gt;
+        &lt;!-- Image Capture or Video Capture by Capturing tools
+        i.e. Windows 7 Snipping Tool, SnagIt, Jing, Camtasia Recorder, Camstudio, Captivate
+        recommend putting +SR flag on process flag file --&gt;
+        &lt;constOpAdeScreenCapture /&gt;
+      &lt;/equal&gt;
+      &lt;not&gt;
+        &lt;in&gt;
+          &lt;curProcessImageName /&gt;
+          &lt;list&gt;
+	   &lt;string value="emodelviewer.e" /&gt;
+	   &lt;string value="excel.exe" /&gt;
+            &lt;string value="acrord32.exe" /&gt;
+            &lt;string value="g2mcomm.exe" /&gt;
+            &lt;string value="firefox.exe" /&gt;
+            &lt;string value="winvnc4.exe" /&gt;
+            &lt;string value="orplat.exe" /&gt;
+            &lt;string value="atmgr.exe" /&gt;
+            &lt;string value="dynamics.exe" /&gt;
+            &lt;string value="acrobat.exe" /&gt;
+            &lt;string value="iexplore.exe" /&gt;
+            &lt;string value="wfica32.exe" /&gt;
+            &lt;string value="uedit32.exe" /&gt;
+            &lt;string value="sshclient.exe" /&gt;
+            &lt;string value="winproj.exe" /&gt;
+            &lt;string value="reportdesigner" /&gt;
+            &lt;string value="puttycm.exe" /&gt;
+            &lt;string value="mirc.exe" /&gt;
+            &lt;string value="mremoteng.exe" /&gt;
+            &lt;string value="winscp.exe" /&gt;
+            &lt;string value="superputty.exe" /&gt;
+            &lt;string value="scjview.exe" /&gt;
+            &lt;string value="chrome.exe" /&gt;
+            &lt;string value="regsvr32.exe" /&gt;
+            &lt;string value="marketviewer_q" /&gt;
+            &lt;string value="excel.exe" /&gt;
+            &lt;string value="filezilla.exe" /&gt;
+            &lt;string value="riskshield.exe" /&gt;
+            &lt;string value="splwow64.exe" /&gt;
+            &lt;string value="winword.exe" /&gt;
+            &lt;string value="winsig.exe" /&gt;
+            &lt;string value="espeed.exe" /&gt;
+            &lt;string value="powerpnt.exe" /&gt;
+            &lt;string value="murdochscraper" /&gt;
+            &lt;string value="ois.exe" /&gt;
+            &lt;string value="zolom.exe" /&gt;
+          &lt;/list&gt;
+        &lt;/in&gt;
+      &lt;/not&gt;
+    &lt;/and&gt;
+  &lt;/or&gt;
+&lt;/and&gt;</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>Mobile Windows</SupportedPlatform>
+        <RulePriority>33300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>bb9fc430-7f5c-4149-9604-2cf7cb503cf8</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>Prompt</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Alert</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>Debug Prompt Orig</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) Copy Move File Size Limit</Name>
+        <Description />
+        <Text>&lt;and&gt;
+	&lt;userFunction name = "bhovd_ext"/&gt; 
+
+  &lt;or&gt;
+    &lt;greaterThan&gt;
+      &lt;evtSrcFileSize /&gt;
+      &lt;int64 value="50000" /&gt;
+    &lt;/greaterThan&gt;
+    &lt;greaterThan&gt;
+      &lt;evtDestFileSize /&gt;
+      &lt;int64 value="50000" /&gt;
+    &lt;/greaterThan&gt;
+  &lt;/or&gt;
+ 	 
+  &lt;in&gt;
+    &lt;evtOperationType /&gt;
+    &lt;list&gt;
+      &lt;constOpFileCopy /&gt;
+      &lt;constOpFileMove /&gt;
+         &lt;/list&gt;
+  &lt;/in&gt;
+  &lt;/and&gt;
+
+</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Alert</ActionType>
+        <SupportedPlatform>MacOSX Mobile Windows</SupportedPlatform>
+        <RulePriority>40300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>00000000-0000-0000-0000-000000000000</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Vault</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault />
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) Data Vault</Name>
+        <Description />
+        <Text>&lt;and&gt;
+  &lt;equal&gt;
+    &lt;evtSrcFileIsClassified /&gt;
+    &lt;bool value="true" /&gt;
+  &lt;/equal&gt;
+  &lt;not&gt;
+    &lt;in&gt;
+      &lt;curProcessImageName/&gt;
+      &lt;list&gt;
+        &lt;string value="explorer.exe"/&gt;
+        &lt;string value="mbam.exe"/&gt;
+        &lt;string value="vmtoolsd.exe"/&gt;
+        &lt;string value="ntoskrnl.exe" /&gt;
+        &lt;string value="system" /&gt;
+        &lt;string value="outlook.exe" /&gt;
+        &lt;string value="ccleaner64.exe" /&gt;
+      &lt;/list&gt;
+    &lt;/in&gt;
+  &lt;/not&gt;
+  &lt;equal&gt;
+    &lt;evtOperationType /&gt;
+    &lt;constOpFileOpen /&gt;
+  &lt;/equal&gt;
+&lt;/and&gt;</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Vault</ActionType>
+        <SupportedPlatform>Linux MacOSX Mobile Windows</SupportedPlatform>
+        <RulePriority>50300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>00000000-0000-0000-0000-000000000000</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>false</SendAlert>
+        <SendAlertInt>0</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>(BHOVD) Email Block</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) E-Mail Block If Classified</Name>
+        <Description>Blocks e-mail if content is tagged confidential and is sent to any external domain</Description>
+        <Text>&lt;and&gt;
+  &lt;equal&gt;
+    &lt;evtSrcFileIsClassified /&gt;
+    &lt;bool value="true" /&gt;
+  &lt;/equal&gt;
+&lt;not&gt;
+      &lt;regExp expr="(.*\@digitalguardian\.com|.*\@dgmcdemo\.com)" match="all"&gt;
+        &lt;evtMailRecipients /&gt;
+      &lt;/regExp&gt;
+    &lt;/not&gt;
+  &lt;equal&gt;
+    &lt;evtOperationType /&gt;
+    &lt;constOpSendMail /&gt;
+  &lt;/equal&gt;
+&lt;/and&gt;</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>All</SupportedPlatform>
+        <RulePriority>31300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>7e0c0497-83da-4778-a29b-3278599c78dd</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>(BHOVD) - File Archive PII or Confidential</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) File Archive PII or Confidential</Name>
+        <Description>Informs user information is confidential or contains PII</Description>
+        <Text>&lt;and&gt;
+&lt;in&gt;
+        &lt;evtSrcFilePolicyTag/&gt;
+        &lt;list&gt;
+            &lt;string value="Privacy"/&gt;
+            &lt;string value="privacy"/&gt;
+            &lt;string value="Confidential"/&gt;
+            &lt;string value="confidential"/&gt;
+         &lt;/list&gt;
+    	&lt;/in&gt;
+
+
+&lt;equal&gt;
+  &lt;evtOperationType /&gt;
+  &lt;constOpFileArchive /&gt;
+&lt;/equal&gt;
+
+&lt;/and&gt;</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>Linux Mobile Windows</SupportedPlatform>
+        <RulePriority>35300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>5c08cc03-8a82-401f-b4cd-cc888e4c2aaa</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>NTU - Classified File(BHOVD)</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) NTU01 - Classified File Uploads</Name>
+        <Description>Prevent NTU of classified data.</Description>
+        <Text>&lt;and&gt;
+
+    &lt;in&gt;
+        &lt;evtSrcFilePolicyTag/&gt;
+        &lt;list&gt;
+            &lt;string value="Confidential"/&gt;
+            &lt;string value="confidential-linux"/&gt;
+            &lt;string value="DatabaseExport"/&gt;
+            &lt;string value="EPHI"/&gt;
+            &lt;string value="Sharepoint"/&gt;
+            &lt;string value="confidential_design"/&gt;
+            &lt;string value="sketchup"/&gt;
+	   &lt;/list&gt;
+    &lt;/in&gt;
+
+    &lt;not&gt;
+        &lt;equal&gt;
+            &lt;evtSrcFilePolicyTag/&gt;
+            &lt;string value="privacy"/&gt;
+        &lt;/equal&gt;
+    &lt;/not&gt;
+
+
+    &lt;not&gt;
+        &lt;like expr="%sp2.verdasys.com%"&gt;
+            &lt;evtDomain/&gt;
+        &lt;/like&gt;
+    &lt;/not&gt;
+    &lt;in&gt;
+        &lt;evtOperationType/&gt;
+        &lt;list&gt;
+            &lt;constOpNetTransferUpload/&gt;
+        &lt;/list&gt;
+    &lt;/in&gt;
+&lt;/and&gt;
+</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>All</SupportedPlatform>
+        <RulePriority>35300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>1e631bb6-17ff-422e-b0bb-26adfa53e234</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>(BHOVD) - NTU - PHI/PII File Upload</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) NTU02 - Privacy File Uploads</Name>
+        <Description>Prevent NTU of classified data.</Description>
+        <Text>&lt;and&gt;
+
+    &lt;in&gt;
+        &lt;evtSrcFilePolicyTag/&gt;
+        &lt;list&gt;
+            &lt;string value="Privacy"/&gt;
+            &lt;string value="privacy"/&gt;
+            &lt;string value="Privacy-Linux"/&gt;
+            &lt;string value="privacy-Linux"/&gt;
+         &lt;/list&gt;
+    	&lt;/in&gt;
+
+    &lt;not&gt;
+        &lt;like expr="%sp2.verdasys.com%"&gt;
+            &lt;evtDomain/&gt;
+        		&lt;/like&gt;
+    &lt;/not&gt;
+    &lt;in&gt;
+        &lt;evtOperationType/&gt;
+        &lt;list&gt;
+            &lt;constOpNetTransferUpload/&gt;
+        &lt;/list&gt;
+    &lt;/in&gt;
+&lt;/and&gt;
+</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>All</SupportedPlatform>
+        <RulePriority>35300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>4252799f-2edb-4cbe-b5fa-c44596180636</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>(BHOVD) Block Paste</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) Privacy Person SSN Paste</Name>
+        <Description>Prompts if pasting person or SSN into IE.</Description>
+        <Text>  &lt;and&gt;
+    &lt;or&gt;
+      &lt;and&gt;
+        &lt;greaterThan&gt;
+          &lt;evtSrcFileEntityFrequency name="person" /&gt;
+          &lt;int value="0" /&gt;
+        &lt;/greaterThan&gt;
+        &lt;greaterThan&gt;
+          &lt;evtSrcFileEntityFrequency name="ssn" /&gt;
+          &lt;int value="0" /&gt;
+        &lt;/greaterThan&gt;
+      &lt;/and&gt;
+      &lt;and&gt;
+        &lt;greaterThan&gt;
+          &lt;evtDestFileEntityFrequency name="person" /&gt;
+          &lt;int value="0" /&gt;
+        &lt;/greaterThan&gt;
+        &lt;greaterThan&gt;
+          &lt;evtDestFileEntityFrequency name="ssn" /&gt;
+          &lt;int value="0" /&gt;
+        &lt;/greaterThan&gt;
+      &lt;/and&gt;
+    &lt;/or&gt;
+    &lt;!-- the set of file extensions to analyze --&gt;
+     	&lt;userFunction name="bhovd_ext" /&gt;
+
+	&lt;equal&gt;
+		&lt;curProcessImageName /&gt; 
+		&lt;string value="iexplore.exe" /&gt; 
+	&lt;/equal&gt;
+
+	&lt;equal&gt;
+		&lt;evtOperationType /&gt;
+		&lt;constOpAdePaste /&gt;
+	&lt;/equal&gt;
+  &lt;/and&gt;
+  </Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>Mobile Windows</SupportedPlatform>
+        <RulePriority>31300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>86770284-9716-4b62-a39d-035e6248ce95</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Prompt</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>Debug Prompt Orig</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD) USB block</Name>
+        <Description />
+        <Text>&lt;and&gt;
+  &lt;and&gt;
+    &lt;equal&gt;
+      &lt;evtDestDriveType /&gt;
+      &lt;constDriveRemovable /&gt;
+    &lt;/equal&gt;
+    &lt;equal&gt;
+      &lt;evtSrcFileIsClassified /&gt;
+      &lt;bool value="true" /&gt;
+    &lt;/equal&gt;
+  &lt;/and&gt;
+  &lt;in&gt;
+    &lt;evtOperationType /&gt;
+    &lt;list&gt;
+      &lt;constOpFileCopy /&gt;
+      &lt;constOpFileMove /&gt;
+      &lt;constOpFileSaveAs /&gt;
+    &lt;/list&gt;
+  &lt;/in&gt;
+&lt;/and&gt;</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Prompt</ActionType>
+        <SupportedPlatform>Linux MacOSX Mobile Windows</SupportedPlatform>
+        <RulePriority>33300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>98333c93-5580-4289-9758-eb7ce3a0d623</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+    <Rule>
+        <Choices>
+            <Show>Normal</Show>
+            <ActionTypeChoice>None</ActionTypeChoice>
+            <ActionTypeChoiceDefault>Alert</ActionTypeChoiceDefault>
+            <ActionTypeChoiceSelected>None</ActionTypeChoiceSelected>
+            <AlertLevelChoiceEnabled>false</AlertLevelChoiceEnabled>
+            <AlertLevelChoice>None_0</AlertLevelChoice>
+            <AlertLevelChoiceDefault>Medium</AlertLevelChoiceDefault>
+            <AlertLevelChoiceSelected>None</AlertLevelChoiceSelected>
+            <EncryptionTypeChoicesEnabled>false</EncryptionTypeChoicesEnabled>
+            <EncryptionTypeChoice>None</EncryptionTypeChoice>
+            <EncryptionTypeChoiceDefault>None</EncryptionTypeChoiceDefault>
+            <EncryptionTypeChoiceSelected>None</EncryptionTypeChoiceSelected>
+            <PromptChoicesEnabled>false</PromptChoicesEnabled>
+            <PromptChoice />
+            <PromptChoiceDefault>Debug Prompt Orig</PromptChoiceDefault>
+            <PromptChoiceSelected />
+            <ChoiceSelections />
+        </Choices>
+        <RuleType>Control</RuleType>
+        <RuleClass>Core</RuleClass>
+        <Name>(BHOVD)_Contains_SSN</Name>
+        <Description />
+        <Text>&lt;and&gt;
+&lt;userFunction name = "bhovd_ext"/&gt; 
+
+  &lt;greaterThan&gt;
+    &lt;evtSrcFileEntityFrequency name="ssn" /&gt;
+    &lt;int value="1" /&gt;
+  &lt;/greaterThan&gt;
+    &lt;in&gt;
+    &lt;evtOperationType /&gt;
+    &lt;list&gt;
+      &lt;constOpFileCopy /&gt;
+      &lt;constOpFileMove /&gt;
+    &lt;/list&gt;
+  &lt;/in&gt;
+&lt;/and&gt;</Text>
+        <AlertLevel>3</AlertLevel>
+        <Status>Active</Status>
+        <ActionType>Alert</ActionType>
+        <SupportedPlatform>Linux MacOSX Mobile Windows</SupportedPlatform>
+        <RulePriority>40300</RulePriority>
+        <IsDefaultPriority>true</IsDefaultPriority>
+        <IsExpedited>false</IsExpedited>
+        <IsFDERule>false</IsFDERule>
+        <ContinueRuleEvaluation>false</ContinueRuleEvaluation>
+        <RunPostOp>false</RunPostOp>
+        <ApplyDgeExtension>false</ApplyDgeExtension>
+        <PromptID>00000000-0000-0000-0000-000000000000</PromptID>
+        <ProcessRuleId>00000000-0000-0000-0000-000000000000</ProcessRuleId>
+        <SendAlert>true</SendAlert>
+        <SendAlertInt>1</SendAlertInt>
+        <EncryptionType>None</EncryptionType>
+        <ZipPasswordAutoGen>false</ZipPasswordAutoGen>
+        <ZipPassword />
+        <ContainerId>00000000-0000-0000-0000-000000000001</ContainerId>
+        <ReadOnly>false</ReadOnly>
+        <ExistingPoliciesThatArentSupportedByRulePlatforms />
+    </Rule>
+</ArrayOfRule>
