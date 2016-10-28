@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?><dashboards><dashboard name="Exit Reports all at once" description="" access="1"><Reports>
+  <MetaData>
+    <layoutId>rb11</layoutId>
+    <col1Width>100</col1Width>
+    <col2Width>0</col2Width>
+    <col3Width>0</col3Width>
+    <col4Width>0</col4Width>
+    <row1Height>0</row1Height>
+    <row2Height>100</row2Height>
+    <row3Height>0</row3Height>
+    <displayMatte>True</displayMatte>
+    <mustBeDocked>True</mustBeDocked>
+  </MetaData>
+  <Report>
+    <orgId>6DB2D8B5-9BA8-450C-8EC7-3F1252D29E54</orgId>
+    <id>_6DB2D8B59BA8</id>
+    <title>Exit Interview - Email Details</title>
+    <url>../Controls/LoadData.ascx</url>
+    <column>ColumnOne</column>
+    <seq>0</seq>
+    <contentUrl>../Workspace/CustomReport.aspx?reportId=6DB2D8B5-9BA8-450C-8EC7-3F1252D29E54</contentUrl>
+    <height>300</height>
+    <width>100</width>
+    <collapsed>False</collapsed>
+    <sideNavId>00000000-0000-0000-0000-000000002180</sideNavId>
+    <imageUrl>Resources/Images/componentart_images/icons/windowsuser.gif</imageUrl>
+    <repType>grid</repType>
+  </Report>
+  <Report>
+    <orgId>FAA38DC0-E450-4BA5-B0B4-554A61148006</orgId>
+    <id>_FAA38DC0E450</id>
+    <title>Exit Interview - NTU Details</title>
+    <url>../Controls/LoadData.ascx</url>
+    <column>ColumnOne</column>
+    <seq>1</seq>
+    <contentUrl>../Workspace/CustomReport.aspx?reportId=FAA38DC0-E450-4BA5-B0B4-554A61148006</contentUrl>
+    <height>300</height>
+    <width>100</width>
+    <collapsed>False</collapsed>
+    <sideNavId>00000000-0000-0000-0000-000000002180</sideNavId>
+    <imageUrl>Resources/Images/componentart_images/icons/windowsuser.gif</imageUrl>
+    <repType>grid</repType>
+  </Report>
+  <Report>
+    <orgId>33B6ECCC-8B18-4FC9-B973-0180B9E79221</orgId>
+    <id>_33B6ECCC8B18</id>
+    <title>Exit Interview - CDBurn Details</title>
+    <url>../Controls/LoadData.ascx</url>
+    <column>ColumnOne</column>
+    <seq>4</seq>
+    <contentUrl>../Workspace/CustomReport.aspx?reportId=33B6ECCC-8B18-4FC9-B973-0180B9E79221</contentUrl>
+    <height>300</height>
+    <width>100</width>
+    <collapsed>False</collapsed>
+    <sideNavId>00000000-0000-0000-0000-000000002180</sideNavId>
+    <imageUrl>Resources/Images/componentart_images/icons/windowsuser.gif</imageUrl>
+    <repType>grid</repType>
+  </Report>
+  <Report>
+    <orgId>F793337B-FA11-4CAA-A417-0ADC3A9BC7C2</orgId>
+    <id>_F793337BFA11</id>
+    <title>Exit Interview - Print Details</title>
+    <url>../Controls/LoadData.ascx</url>
+    <column>ColumnOne</column>
+    <seq>5</seq>
+    <contentUrl>../Workspace/CustomReport.aspx?reportId=F793337B-FA11-4CAA-A417-0ADC3A9BC7C2</contentUrl>
+    <height>300</height>
+    <width>100</width>
+    <collapsed>False</collapsed>
+    <sideNavId>00000000-0000-0000-0000-000000002180</sideNavId>
+    <imageUrl>Resources/Images/componentart_images/icons/windowsuser.gif</imageUrl>
+    <repType>grid</repType>
+  </Report>
+  <Report>
+    <orgId>122C9FDA-A9CA-4572-8494-C405837435A5</orgId>
+    <id>_122C9FDAA9CA</id>
+    <title>Exit Interview - Removable Details</title>
+    <url>../Controls/LoadData.ascx</url>
+    <column>ColumnOne</column>
+    <seq>2</seq>
+    <contentUrl>../Workspace/CustomReport.aspx?reportId=122C9FDA-A9CA-4572-8494-C405837435A5</contentUrl>
+    <height>300</height>
+    <width>100</width>
+    <collapsed>False</collapsed>
+    <sideNavId>00000000-0000-0000-0000-000000002180</sideNavId>
+    <imageUrl>Resources/Images/componentart_images/icons/windowsuser.gif</imageUrl>
+    <repType>grid</repType>
+  </Report>
+  <Report>
+    <orgId>4E3BBE6E-C312-488E-913E-2EB97ADF78C5</orgId>
+    <id>_4E3BBE6EC312</id>
+    <title>HVA - High File Movements After Hours - Users</title>
+    <url>../Controls/LoadData.ascx</url>
+    <column>ColumnOne</column>
+    <seq>3</seq>
+    <contentUrl>../Workspace/CustomReport.aspx?reportId=4E3BBE6E-C312-488E-913E-2EB97ADF78C5</contentUrl>
+    <height>300</height>
+    <width>100</width>
+    <collapsed>False</collapsed>
+    <sideNavId>00000000-0000-0000-0000-000000002180</sideNavId>
+    <imageUrl>Resources/Images/componentart_images/icons/usergroup.gif</imageUrl>
+    <repType>grid</repType>
+  </Report>
+  <Condition>
+    <name>Agent Local Date</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2013-07-31T00:00:00.000,2013-07-31T23:59:59.997</value>
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>Agent Local Date</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>day</type>
+    <lookup />
+    <control>Calendar</control>
+  </Condition>
+  <Condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>guid</type>
+    <lookup />
+    <control>FinderDialog</control>
+  </Condition>
+  <Condition>
+    <name>Computer Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>Computer Name</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>guid_machine</type>
+    <lookup />
+    <control>FinderDialogMachine</control>
+  </Condition>
+  <Condition>
+    <name>User Name Text</name>
+    <is>1</is>
+    <operation>like</operation>
+    <required>0</required>
+    <value />
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>User Name Text</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>string</type>
+    <lookup />
+    <control>TextBox</control>
+  </Condition>
+  <Condition>
+    <name>Operation</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>1,11,12,7,3,22,28</value>
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>Operation</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>enum</type>
+    <lookup>EventOperationType</lookup>
+    <control>ListBox</control>
+  </Condition>
+  <Condition>
+    <name>Destination Drive Type</name>
+    <is>0</is>
+    <operation>equal to</operation>
+    <required>0</required>
+    <value>3</value>
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>Destination Drive Type</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>enum</type>
+    <lookup>DriveType</lookup>
+    <control>ListBox</control>
+  </Condition>
+  <Condition>
+    <name>Hour of Day</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>00,1,2,3,4,5,6,7,19,20,21,22,23</value>
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>Before 8AM-After7PM</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>number</type>
+    <lookup />
+    <control>TextBox</control>
+  </Condition>
+  <Condition>
+    <name>Agent Local Time</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2014-08-07T00:00:00.000,2014-08-07T23:59:59.997</value>
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>Agent Local Time</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+    <type>date</type>
+    <lookup />
+    <control>Calendar</control>
+  </Condition>
+  <Dates>
+    <dateType>Range</dateType>
+    <dateRange>Last30Days</dateRange>
+  </Dates>
+</Reports></dashboard></dashboards>

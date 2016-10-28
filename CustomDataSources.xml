@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<topLevel>
+<report>
+  <report>
+    <name>BAIN CUSTOM - CD Burn Egress V4</name>
+    <table>BAIN_CUSTOM_CDBURN_EGRESSV4</table>
+    <datasource>events</datasource>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+  </report>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Event ID</name>
+    <label>Event ID</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Application</name>
+    <label>Application</label>
+    <aggby>false</aggby>
+    <aggfunc />
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>File Size MB</name>
+    <label>File Size MB</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <field>
+    <name>Was Classified</name>
+    <label>Was Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Source Classified</name>
+    <label>Was Source Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Destination Classified</name>
+    <label>Was Destination Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <aggby>false</aggby>
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Destination File Extension</name>
+    <label>Destination File Extension</label>
+    <aggby>false</aggby>
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail Classification Policy</name>
+    <label>Detail Classification Policy</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>File Count</name>
+    <label>File Count</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Drive Type</name>
+    <label>Source Drive Type</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size KB</name>
+    <label>Detail File Size KB</label>
+    <aggby>false</aggby>
+  </field>
+  <condition>
+    <name>Operation</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <value>1</value>
+    <label>Operation</label>
+  </condition>
+  <condition>
+    <name>Source Directory</name>
+    <is>0</is>
+    <operation>equal to</operation>
+    <value>?:\</value>
+    <label>Source Directory</label>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <userReport>
+    <name>BHOVD CUSTOM - CD Burn Egress V4</name>
+    <description>Data source for CD Burn activity</description>
+    <isActive>True</isActive>
+    <lifeSpan>30</lifeSpan>
+  </userReport>
+</report><report>
+  <report>
+    <name>BAIN CUSTOM - Email Egress V4</name>
+    <table>BAIN_CUSTOM_EMAIL_EGRESS_V4</table>
+    <datasource>events</datasource>
+    <criteriaGroup>1 and 2 and ((3 and 4) or (3 and 5))</criteriaGroup>
+    <criteriaFormat>'Operation' and 'Email Domain Name' and (('Source File' and 'Source Directory') or ('Source File' and 'Source Drive Type'))</criteriaFormat>
+  </report>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Email Domain Name</name>
+    <label>Email Domain Name</label>
+    <aggby>false</aggby>
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Total</name>
+    <label>Total</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <field>
+    <name>Was Classified</name>
+    <label>Was Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Source Classified</name>
+    <label>Was Source Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Destination Classified</name>
+    <label>Was Destination Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File Extension</name>
+    <label>Destination File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail Classification Policy</name>
+    <label>Detail Classification Policy</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>File Count</name>
+    <label>File Count</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Event ID</name>
+    <label>Event ID</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Email Sender</name>
+    <label>Email Sender</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Email Recipient</name>
+    <label>Email Recipient</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Drive Type</name>
+    <label>Source Drive Type</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Email Recipient Type</name>
+    <label>Email Recipient Type</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size KB</name>
+    <label>Detail File Size KB</label>
+    <aggby>false</aggby>
+  </field>
+  <condition>
+    <name>Operation</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <value>28</value>
+    <label>Operation</label>
+  </condition>
+  <condition>
+    <name>Email Domain Name</name>
+    <is>0</is>
+    <operation>like</operation>
+    <value>*hess,*hess.com</value>
+    <label>Email Domain Name</label>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <condition>
+    <name>Source File</name>
+    <is>0</is>
+    <operation>equal to</operation>
+    <value>message body</value>
+    <label>Source File</label>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <condition>
+    <name>Source Directory</name>
+    <is>0</is>
+    <operation>equal to</operation>
+    <value>?:\</value>
+    <label>Source Directory</label>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <condition>
+    <name>Source Drive Type</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <value>0</value>
+    <label>Source Drive Type</label>
+  </condition>
+  <userReport>
+    <name>BHOVD CUSTOM - Email Egress V4</name>
+    <description>Data source for Email activity</description>
+    <isActive>True</isActive>
+    <lifeSpan>30</lifeSpan>
+  </userReport>
+</report><report>
+  <report>
+    <name>BAIN CUSTOM - Network Upload Egress V4</name>
+    <table>BAIN_CUSTOM_NTU_EGRESS_V4</table>
+    <datasource>events</datasource>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+  </report>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Application</name>
+    <label>Application</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>DNS Hostname</name>
+    <label>DNS Hostname</label>
+    <aggby>false</aggby>
+    <aggfunc />
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Remote Port</name>
+    <label>Remote Port</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Detail File Size KB</name>
+    <label>Detail File Size KB</label>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>File Size MB</name>
+    <label>File Size MB</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Classified</name>
+    <label>Was Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File Extension</name>
+    <label>Destination File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Drive Type</name>
+    <label>Source Drive Type</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail Classification Policy</name>
+    <label>Detail Classification Policy</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>File Count</name>
+    <label>File Count</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Event ID</name>
+    <label>Event ID</label>
+    <aggby>false</aggby>
+  </field>
+  <condition>
+    <name>Operation</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <value>3</value>
+    <label>Operation</label>
+  </condition>
+  <condition>
+    <name>DNS Hostname</name>
+    <is>0</is>
+    <operation>like</operation>
+    <value>*hess,*hess.com</value>
+    <label>DNS Hostname</label>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <condition>
+    <name>Source Directory</name>
+    <is>0</is>
+    <operation>equal to</operation>
+    <value>?:\</value>
+    <label>Source Directory</label>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <userReport>
+    <name>BHOVD CUSTOM - Network Upload Egress V4</name>
+    <description>Data source for Network Transfer Upload activity</description>
+    <isActive>True</isActive>
+    <lifeSpan>30</lifeSpan>
+  </userReport>
+</report><report>
+  <report>
+    <name>BAIN CUSTOM - Print Egress V4</name>
+    <table>BAIN_CUSTOM_PRINT_EGRESS_V4</table>
+    <datasource>events</datasource>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+  </report>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Printer</name>
+    <label>Printer</label>
+    <aggby>false</aggby>
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>File Size MB</name>
+    <label>File Size MB</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <field>
+    <name>Was Classified</name>
+    <label>Was Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Source Classified</name>
+    <label>Was Source Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Destination Classified</name>
+    <label>Was Destination Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File Extension</name>
+    <label>Destination File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Drive Type</name>
+    <label>Source Drive Type</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail Classification Policy</name>
+    <label>Detail Classification Policy</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>File Count</name>
+    <label>File Count</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Event ID</name>
+    <label>Event ID</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size KB</name>
+    <label>Detail File Size KB</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Printer Jobname</name>
+    <label>Printer Jobname</label>
+    <aggby>false</aggby>
+  </field>
+  <condition>
+    <name>Operation</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <value>22</value>
+    <label>Operation</label>
+  </condition>
+  <condition>
+    <name>Detail File Size KB</name>
+    <is>1</is>
+    <operation>greater than</operation>
+    <value>0</value>
+    <label>Detail File Size KB</label>
+  </condition>
+  <userReport>
+    <name>BHOVD CUSTOM - Print Egress V4</name>
+    <description>Data source for Print activity</description>
+    <isActive>True</isActive>
+    <lifeSpan>30</lifeSpan>
+  </userReport>
+</report><report>
+  <report>
+    <name>BAIN CUSTOM - Removable Egress V4</name>
+    <table>BAIN_CUSTOM_REMOVABLE_V4</table>
+    <datasource>events</datasource>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+  </report>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Application</name>
+    <label>Application</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Operation</name>
+    <label>Operation</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+  </field>
+  <field>
+    <name>File Size MB</name>
+    <label>File Size MB</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size KB</name>
+    <label>Detail File Size KB</label>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Classified</name>
+    <label>Was Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Source Classified</name>
+    <label>Was Source Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Was Destination Classified</name>
+    <label>Was Destination Classified</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File Extension</name>
+    <label>Destination File Extension</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Drive Type</name>
+    <label>Source Drive Type</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <aggby>false</aggby>
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Detail Classification Policy</name>
+    <label>Detail Classification Policy</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Event ID</name>
+    <label>Event ID</label>
+    <aggby>false</aggby>
+    <aggfunc />
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>File Count</name>
+    <label>File Count</label>
+    <aggby>false</aggby>
+    <aggfunc />
+  </field>
+  <field>
+    <name>Destination Drive Type</name>
+    <label>Destination Drive Type</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination Directory</name>
+    <label>Destination Directory</label>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File</name>
+    <label>Destination File</label>
+    <aggby>false</aggby>
+  </field>
+  <condition>
+    <name>Operation</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <value>21,11,12,7,2</value>
+    <label>Operation</label>
+  </condition>
+  <condition>
+    <name>Destination Drive Type</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <value>2</value>
+    <label>Destination Drive Type</label>
+  </condition>
+  <condition>
+    <name>Source Directory</name>
+    <is>0</is>
+    <operation>equal to</operation>
+    <value>?:\</value>
+    <label>Source Directory</label>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <userReport>
+    <name>BHOVD CUSTOM - Removable Egress V4</name>
+    <description>Data source for activity to Removable Media</description>
+    <isActive>True</isActive>
+    <lifeSpan>30</lifeSpan>
+  </userReport>
+</report>
+</topLevel>

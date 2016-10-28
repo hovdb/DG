@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="UTF-8" ?><topLevel><report>
+  <report>
+    <name>Exit Interview - CDBurn Details</name>
+    <datasource>BHOVD CUSTOM - CD Burn Egress V4</datasource>
+    <parent>events</parent>
+    <top>All</top>
+    <distinct>true</distinct>
+    <leftjoin>0</leftjoin>
+    <runImmed>false</runImmed>
+    <allowExport>true</allowExport>
+    <csv>true</csv>
+    <excel>true</excel>
+    <records>100</records>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+    <drilldown />
+    <drilldown2 />
+    <reportType>grid</reportType>
+    <chartWidth>400</chartWidth>
+    <chartHeight>400</chartHeight>
+    <chartOrient>horizontal</chartOrient>
+    <chartValueAxis>best</chartValueAxis>
+    <chartType>normal</chartType>
+    <xLabels>true</xLabels>
+    <yLabels>true</yLabels>
+    <chartPalette>Default</chartPalette>
+    <pieLegendPosition>auto</pieLegendPosition>
+    <pieType>normal</pieType>
+    <pieLegend>true</pieLegend>
+    <pieLabels>true</pieLabels>
+    <pieLabelColor>black</pieLabelColor>
+    <piePalette>Corporate</piePalette>
+    <scatterXLabels>true</scatterXLabels>
+    <scatterYLabels>true</scatterYLabels>
+    <scatterLabels>true</scatterLabels>
+    <scatterLabelColor>black</scatterLabelColor>
+    <scatterLegend>false</scatterLegend>
+    <scatterPosition>auto</scatterPosition>
+    <scatterPalette>GreenRed</scatterPalette>
+    <gridWidth />
+    <includeZero>global</includeZero>
+  </report>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>User Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Date</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Time</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Application</name>
+    <label>Application</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Application</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Computer Name</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Detail File Size MB</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File Extension</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Total Details</tooltip>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <condition>
+    <name>Agent Local Date</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2013-07-31T00:00:00.000,2013-07-31T23:59:59.997</value>
+    <visible>true</visible>
+    <label>Agent Local Date</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>'DAC5776B-4E56-4A24-897A-F45044E0B012', '0723FF33-85E9-4762-9654-363BB0E7E2E5', '1B9C3580-F485-9F4F-859E-6142FF1B968D', '53C1326D-6F4C-1445-BC0A-5989CE4905ED', '57818939-0B02-064E-8ACF-12FD271F22E4', '6063CC65-90B4-E244-B346-E2C4042E4FB2', '0244141E-F46C-944A-BAAE-05E0B2E2721B', '37A7A5AD-6B70-534C-A911-587E62B269F3', 'E58F2880-B3CF-464D-999F-93558EA038E2', '487288C9-BB0B-4E42-825E-F88594B36FE1', '266BE8CB-953C-6E47-A662-1D8BF4A6AF95', 'D55AAD54-808D-DF46-8906-0A853980CFBF', 'F32753EB-D036-A146-8F25-52F4A8EC54C1', 'EF1819B2-571E-E241-98F2-1CD7F772B068', 'C212B197-45E9-E347-9842-97E6F8054E2E', '9116049A-3D4F-C14A-9A2F-DD97EA975806', 'B7CBDB16-778B-4847-9E39-6EE7255246FF', '90437140-0B9C-BB43-A120-0778993C265C', 'B4465ED3-2FF0-4ECB-8FBE-7BA8D5F91540', '6DC94C6B-BAEC-D84D-B699-77D425D27ED9', '2FFE70E3-1734-1741-B46D-BE14AC3224D9', 'BCF72669-438B-4FA4-BAA0-F6989586F2F6', '1B6BBC86-3D1C-B44B-8062-020ED7374AA4', '094ECD31-82AD-414E-B5F3-FE91E21ECE51', '81790C70-81EE-4A45-A6F0-24C6D279D541', 'BE05FDB8-57D0-344D-9614-61B360E0C730', '8EA14FE7-C772-A341-8B96-BA3C098B4E36', '5AC53CCA-C35F-524B-997C-537867193539', '2A0CA857-A558-6C4B-9769-A5562EAABA44', '69B95C5D-B210-C743-9FA5-B4E31866BB6C', '254E6D91-F443-1244-80A3-9E6DBA560A0A', '6F3E601D-F1EA-A942-AA01-7CCBC8F7AFFC', '7FDE5173-D693-4D4D-9A54-DB4DA3AE4A81', '328D8524-8103-6A47-87D6-D88BD017BBF7', '9BED7F93-109C-DA4F-A168-A6E5B0B38E6B', '7EC1AB87-7036-4930-90BE-1E26B591AB5C', '723E1E2E-42EA-4FC2-91F7-92C9DA6C8A0B', '9F51E209-D4AA-4044-B98B-29A98D5E9B80', '96F78D44-761F-5848-BB88-67C0F8447F6F'</value>
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Computer Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>Computer Name</label>
+    <width>200</width>
+  </condition>
+  <order>
+    <name>User Name</name>
+    <label>User Name</label>
+    <direction>ascending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <order>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <direction>descending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <drilldown>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <drilldown>none</drilldown>
+  </drilldown>
+  <userReport>
+    <name>Exit Interview - CDBurn Details</name>
+    <description />
+    <access>Everyone</access>
+    <dateType>Range</dateType>
+    <dateRange>Last7Days</dateRange>
+  </userReport>
+</report><report>
+  <report>
+    <name>Exit Interview - Email Details</name>
+    <datasource>BHOVD CUSTOM - Email Egress V4</datasource>
+    <parent>events</parent>
+    <top>All</top>
+    <distinct>true</distinct>
+    <leftjoin>0</leftjoin>
+    <runImmed>false</runImmed>
+    <allowExport>true</allowExport>
+    <csv>true</csv>
+    <excel>true</excel>
+    <records>100</records>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+    <drilldown />
+    <drilldown2 />
+    <reportType>grid</reportType>
+    <chartWidth>400</chartWidth>
+    <chartHeight>400</chartHeight>
+    <chartOrient>horizontal</chartOrient>
+    <chartValueAxis>best</chartValueAxis>
+    <chartType>normal</chartType>
+    <xLabels>true</xLabels>
+    <yLabels>true</yLabels>
+    <chartPalette>Default</chartPalette>
+    <pieLegendPosition>auto</pieLegendPosition>
+    <pieType>normal</pieType>
+    <pieLegend>true</pieLegend>
+    <pieLabels>true</pieLabels>
+    <pieLabelColor>black</pieLabelColor>
+    <piePalette>Corporate</piePalette>
+    <scatterXLabels>true</scatterXLabels>
+    <scatterYLabels>true</scatterYLabels>
+    <scatterLabels>true</scatterLabels>
+    <scatterLabelColor>black</scatterLabelColor>
+    <scatterLegend>false</scatterLegend>
+    <scatterPosition>auto</scatterPosition>
+    <scatterPalette>GreenRed</scatterPalette>
+    <gridWidth />
+    <includeZero>global</includeZero>
+  </report>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <width>150</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>User Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <width>100</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Date</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <width>150</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Time</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <width>150</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Computer Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <width>120</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Detail File Size MB</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Email Domain Name</name>
+    <label>Email Domain Name</label>
+    <width>150</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Email Domain Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Email Recipient</name>
+    <label>Email Recipient</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Email Recipient</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <width>150</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File Extension</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+    <stringfunc />
+    <stringvalue />
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <width>100</width>
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Total Details</tooltip>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <condition>
+    <name>Agent Local Date</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2013-07-31T00:00:00.000,2013-07-31T23:59:59.997</value>
+    <visible>true</visible>
+    <label>Agent Local Date</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>'DAC5776B-4E56-4A24-897A-F45044E0B012', '0723FF33-85E9-4762-9654-363BB0E7E2E5', '699A8B98-E090-46C5-AAB6-43FAFAA90E04', '1B9C3580-F485-9F4F-859E-6142FF1B968D', '53C1326D-6F4C-1445-BC0A-5989CE4905ED', '3F637B9F-E3C2-AA42-9A61-60887AC978EF', '57818939-0B02-064E-8ACF-12FD271F22E4', '6063CC65-90B4-E244-B346-E2C4042E4FB2', '0244141E-F46C-944A-BAAE-05E0B2E2721B', '37A7A5AD-6B70-534C-A911-587E62B269F3', '0236FFD0-6635-A44E-BA8D-10A8851B3454', 'E58F2880-B3CF-464D-999F-93558EA038E2', '487288C9-BB0B-4E42-825E-F88594B36FE1', '266BE8CB-953C-6E47-A662-1D8BF4A6AF95', 'D55AAD54-808D-DF46-8906-0A853980CFBF', '413047D6-B682-8A43-ACF9-8761E26F65C5', 'F32753EB-D036-A146-8F25-52F4A8EC54C1', 'EF1819B2-571E-E241-98F2-1CD7F772B068', 'C212B197-45E9-E347-9842-97E6F8054E2E', '9116049A-3D4F-C14A-9A2F-DD97EA975806', 'B7CBDB16-778B-4847-9E39-6EE7255246FF', '90437140-0B9C-BB43-A120-0778993C265C', 'B4465ED3-2FF0-4ECB-8FBE-7BA8D5F91540', '6DC94C6B-BAEC-D84D-B699-77D425D27ED9', '2FFE70E3-1734-1741-B46D-BE14AC3224D9', 'BCF72669-438B-4FA4-BAA0-F6989586F2F6', '1B6BBC86-3D1C-B44B-8062-020ED7374AA4', '094ECD31-82AD-414E-B5F3-FE91E21ECE51', '81790C70-81EE-4A45-A6F0-24C6D279D541', 'BE05FDB8-57D0-344D-9614-61B360E0C730', '8EA14FE7-C772-A341-8B96-BA3C098B4E36', '5AC53CCA-C35F-524B-997C-537867193539', '2A0CA857-A558-6C4B-9769-A5562EAABA44', '69B95C5D-B210-C743-9FA5-B4E31866BB6C', '254E6D91-F443-1244-80A3-9E6DBA560A0A', '6F3E601D-F1EA-A942-AA01-7CCBC8F7AFFC', '7FDE5173-D693-4D4D-9A54-DB4DA3AE4A81', '328D8524-8103-6A47-87D6-D88BD017BBF7', '9BED7F93-109C-DA4F-A168-A6E5B0B38E6B', '7EC1AB87-7036-4930-90BE-1E26B591AB5C', '723E1E2E-42EA-4FC2-91F7-92C9DA6C8A0B', '9F51E209-D4AA-4044-B98B-29A98D5E9B80', '96F78D44-761F-5848-BB88-67C0F8447F6F'</value>
+    <valuelist />
+    <valueexpr />
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Computer Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>Computer Name</label>
+    <width>200</width>
+  </condition>
+  <order>
+    <name>User Name</name>
+    <label>User Name</label>
+    <direction>ascending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <order>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <direction>descending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <drilldown>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <drilldown>Forensic</drilldown>
+  </drilldown>
+  <userReport>
+    <name>Exit Interview - Email Details</name>
+    <description />
+    <access>Everyone</access>
+    <dateType>Range</dateType>
+    <dateRange>Last7Days</dateRange>
+  </userReport>
+</report><report>
+  <report>
+    <name>Exit Interview - NTU Details</name>
+    <datasource>BHOVD CUSTOM - Network Upload Egress V4</datasource>
+    <parent>events</parent>
+    <top>All</top>
+    <distinct>false</distinct>
+    <leftjoin>0</leftjoin>
+    <runImmed>true</runImmed>
+    <allowExport>true</allowExport>
+    <csv>true</csv>
+    <excel>true</excel>
+    <records>100</records>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+    <drilldown />
+    <drilldown2 />
+    <reportType>grid</reportType>
+    <chartWidth>400</chartWidth>
+    <chartHeight>400</chartHeight>
+    <chartOrient>horizontal</chartOrient>
+    <chartValueAxis>best</chartValueAxis>
+    <chartType>normal</chartType>
+    <xLabels>true</xLabels>
+    <yLabels>true</yLabels>
+    <chartPalette>Default</chartPalette>
+    <pieLegendPosition>auto</pieLegendPosition>
+    <pieType>normal</pieType>
+    <pieLegend>true</pieLegend>
+    <pieLabels>true</pieLabels>
+    <pieLabelColor>black</pieLabelColor>
+    <piePalette>Corporate</piePalette>
+    <scatterXLabels>true</scatterXLabels>
+    <scatterYLabels>true</scatterYLabels>
+    <scatterLabels>true</scatterLabels>
+    <scatterLabelColor>black</scatterLabelColor>
+    <scatterLegend>false</scatterLegend>
+    <scatterPosition>auto</scatterPosition>
+    <scatterPalette>GreenRed</scatterPalette>
+    <gridWidth />
+    <includeZero>global</includeZero>
+  </report>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>User Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Date</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Time</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Application</name>
+    <label>Application</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Application</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Computer Name</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>DNS Hostname</name>
+    <label>DNS Hostname</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>DNS Hostname</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Remote Port</name>
+    <label>Remote Port</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Remote Port</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Detail File Size MB</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File Extension</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Total Details</tooltip>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <condition>
+    <name>Agent Local Date</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2013-07-31T00:00:00.000,2013-07-31T23:59:59.997</value>
+    <visible>true</visible>
+    <label>Agent Local Date</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>'DAC5776B-4E56-4A24-897A-F45044E0B012', '0723FF33-85E9-4762-9654-363BB0E7E2E5', '1B9C3580-F485-9F4F-859E-6142FF1B968D', '53C1326D-6F4C-1445-BC0A-5989CE4905ED', '57818939-0B02-064E-8ACF-12FD271F22E4', '6063CC65-90B4-E244-B346-E2C4042E4FB2', '0244141E-F46C-944A-BAAE-05E0B2E2721B', '37A7A5AD-6B70-534C-A911-587E62B269F3', 'E58F2880-B3CF-464D-999F-93558EA038E2', '487288C9-BB0B-4E42-825E-F88594B36FE1', '4C8C1C35-3C9E-463C-AC05-F050DC498B66', '7017964A-461A-4B1C-9FF8-FED43AA1DA18', 'F14642B5-6D33-443D-919C-63C97CAA98B4', '413047D6-B682-8A43-ACF9-8761E26F65C5', 'EF1819B2-571E-E241-98F2-1CD7F772B068', 'E7F73F40-F7A1-9549-9783-F69BC04AECD9', 'C212B197-45E9-E347-9842-97E6F8054E2E', '9116049A-3D4F-C14A-9A2F-DD97EA975806', 'B7CBDB16-778B-4847-9E39-6EE7255246FF', '90437140-0B9C-BB43-A120-0778993C265C', 'B4465ED3-2FF0-4ECB-8FBE-7BA8D5F91540', '6DC94C6B-BAEC-D84D-B699-77D425D27ED9', '2FFE70E3-1734-1741-B46D-BE14AC3224D9', 'BCF72669-438B-4FA4-BAA0-F6989586F2F6', '1B6BBC86-3D1C-B44B-8062-020ED7374AA4', '094ECD31-82AD-414E-B5F3-FE91E21ECE51', '81790C70-81EE-4A45-A6F0-24C6D279D541', 'BE05FDB8-57D0-344D-9614-61B360E0C730', '8EA14FE7-C772-A341-8B96-BA3C098B4E36', '5AC53CCA-C35F-524B-997C-537867193539', '2A0CA857-A558-6C4B-9769-A5562EAABA44', '69B95C5D-B210-C743-9FA5-B4E31866BB6C', '254E6D91-F443-1244-80A3-9E6DBA560A0A', '6F3E601D-F1EA-A942-AA01-7CCBC8F7AFFC', '7FDE5173-D693-4D4D-9A54-DB4DA3AE4A81', '328D8524-8103-6A47-87D6-D88BD017BBF7', '9BED7F93-109C-DA4F-A168-A6E5B0B38E6B', '7EC1AB87-7036-4930-90BE-1E26B591AB5C', '723E1E2E-42EA-4FC2-91F7-92C9DA6C8A0B', '9F51E209-D4AA-4044-B98B-29A98D5E9B80', '96F78D44-761F-5848-BB88-67C0F8447F6F'</value>
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Computer Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>Computer Name</label>
+    <width>200</width>
+  </condition>
+  <order>
+    <name>User Name</name>
+    <label>User Name</label>
+    <direction>ascending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <order>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <direction>descending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <drilldown>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <drilldown>none</drilldown>
+  </drilldown>
+  <userReport>
+    <name>Exit Interview - NTU Details</name>
+    <description />
+    <access>Everyone</access>
+    <dateType>Range</dateType>
+    <dateRange>Last7Days</dateRange>
+  </userReport>
+</report><report>
+  <report>
+    <name>Exit Interview - Print Details</name>
+    <datasource>BHOVD CUSTOM - Print Egress V4</datasource>
+    <parent>events</parent>
+    <top>All</top>
+    <distinct>false</distinct>
+    <leftjoin>0</leftjoin>
+    <runImmed>false</runImmed>
+    <allowExport>true</allowExport>
+    <csv>true</csv>
+    <excel>true</excel>
+    <records>100</records>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+    <drilldown />
+    <drilldown2 />
+    <reportType>grid</reportType>
+    <chartWidth>400</chartWidth>
+    <chartHeight>400</chartHeight>
+    <chartOrient>horizontal</chartOrient>
+    <chartValueAxis>best</chartValueAxis>
+    <chartType>normal</chartType>
+    <xLabels>true</xLabels>
+    <yLabels>true</yLabels>
+    <chartPalette>Default</chartPalette>
+    <pieLegendPosition>auto</pieLegendPosition>
+    <pieType>normal</pieType>
+    <pieLegend>true</pieLegend>
+    <pieLabels>true</pieLabels>
+    <pieLabelColor>black</pieLabelColor>
+    <piePalette>Corporate</piePalette>
+    <scatterXLabels>true</scatterXLabels>
+    <scatterYLabels>true</scatterYLabels>
+    <scatterLabels>true</scatterLabels>
+    <scatterLabelColor>black</scatterLabelColor>
+    <scatterLegend>false</scatterLegend>
+    <scatterPosition>auto</scatterPosition>
+    <scatterPalette>GreenRed</scatterPalette>
+    <gridWidth />
+    <includeZero>global</includeZero>
+  </report>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>User Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Date</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Time</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Computer Name</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size KB</name>
+    <label>Detail File Size KB</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Detail File Size KB</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Printer</name>
+    <label>Printer</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Printer</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File Extension</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Total Details</tooltip>
+    <aggby>true</aggby>
+    <aggfunc>sum</aggfunc>
+  </field>
+  <condition>
+    <name>Agent Local Date</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2013-07-31T00:00:00.000,2013-07-31T23:59:59.997</value>
+    <visible>true</visible>
+    <label>Agent Local Date</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>'DAC5776B-4E56-4A24-897A-F45044E0B012', '0723FF33-85E9-4762-9654-363BB0E7E2E5', '1B9C3580-F485-9F4F-859E-6142FF1B968D', '53C1326D-6F4C-1445-BC0A-5989CE4905ED', '57818939-0B02-064E-8ACF-12FD271F22E4', '6063CC65-90B4-E244-B346-E2C4042E4FB2', '0244141E-F46C-944A-BAAE-05E0B2E2721B', '37A7A5AD-6B70-534C-A911-587E62B269F3', 'E58F2880-B3CF-464D-999F-93558EA038E2', '487288C9-BB0B-4E42-825E-F88594B36FE1', '266BE8CB-953C-6E47-A662-1D8BF4A6AF95', 'D55AAD54-808D-DF46-8906-0A853980CFBF', 'EF1819B2-571E-E241-98F2-1CD7F772B068', 'C212B197-45E9-E347-9842-97E6F8054E2E', '9116049A-3D4F-C14A-9A2F-DD97EA975806', 'B7CBDB16-778B-4847-9E39-6EE7255246FF', '90437140-0B9C-BB43-A120-0778993C265C', 'B4465ED3-2FF0-4ECB-8FBE-7BA8D5F91540', '6DC94C6B-BAEC-D84D-B699-77D425D27ED9', '2FFE70E3-1734-1741-B46D-BE14AC3224D9', 'BCF72669-438B-4FA4-BAA0-F6989586F2F6', '1B6BBC86-3D1C-B44B-8062-020ED7374AA4', '094ECD31-82AD-414E-B5F3-FE91E21ECE51', '81790C70-81EE-4A45-A6F0-24C6D279D541', 'BE05FDB8-57D0-344D-9614-61B360E0C730', '8EA14FE7-C772-A341-8B96-BA3C098B4E36', '5AC53CCA-C35F-524B-997C-537867193539', '2A0CA857-A558-6C4B-9769-A5562EAABA44', '69B95C5D-B210-C743-9FA5-B4E31866BB6C', '254E6D91-F443-1244-80A3-9E6DBA560A0A', '6F3E601D-F1EA-A942-AA01-7CCBC8F7AFFC', '7FDE5173-D693-4D4D-9A54-DB4DA3AE4A81', '328D8524-8103-6A47-87D6-D88BD017BBF7', '9BED7F93-109C-DA4F-A168-A6E5B0B38E6B', '7EC1AB87-7036-4930-90BE-1E26B591AB5C', '723E1E2E-42EA-4FC2-91F7-92C9DA6C8A0B', '9F51E209-D4AA-4044-B98B-29A98D5E9B80', '96F78D44-761F-5848-BB88-67C0F8447F6F'</value>
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Computer Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>Computer Name</label>
+    <width>200</width>
+  </condition>
+  <order>
+    <name>User Name</name>
+    <label>User Name</label>
+    <direction>ascending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <order>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <direction>descending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <drilldown>
+    <name>Total Details</name>
+    <label>Total Details</label>
+    <drilldown>none</drilldown>
+  </drilldown>
+  <userReport>
+    <name>Exit Interview - Print Details</name>
+    <description />
+    <access>Everyone</access>
+    <dateType>Range</dateType>
+    <dateRange>Last7Days</dateRange>
+  </userReport>
+</report><report>
+  <report>
+    <name>Exit Interview - Removable Details</name>
+    <datasource>BHOVD CUSTOM - Removable Egress V4</datasource>
+    <parent>events</parent>
+    <top>All</top>
+    <distinct>true</distinct>
+    <leftjoin>0</leftjoin>
+    <runImmed>false</runImmed>
+    <allowExport>true</allowExport>
+    <csv>true</csv>
+    <excel>true</excel>
+    <records>100</records>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+    <drilldown />
+    <drilldown2 />
+    <reportType>grid</reportType>
+    <chartWidth>400</chartWidth>
+    <chartHeight>400</chartHeight>
+    <chartOrient>horizontal</chartOrient>
+    <chartValueAxis>best</chartValueAxis>
+    <chartType>normal</chartType>
+    <xLabels>true</xLabels>
+    <yLabels>true</yLabels>
+    <chartPalette>Default</chartPalette>
+    <pieLegendPosition>auto</pieLegendPosition>
+    <pieType>normal</pieType>
+    <pieLegend>true</pieLegend>
+    <pieLabels>true</pieLabels>
+    <pieLabelColor>black</pieLabelColor>
+    <piePalette>Corporate</piePalette>
+    <scatterXLabels>true</scatterXLabels>
+    <scatterYLabels>true</scatterYLabels>
+    <scatterLabels>true</scatterLabels>
+    <scatterLabelColor>black</scatterLabelColor>
+    <scatterLegend>false</scatterLegend>
+    <scatterPosition>auto</scatterPosition>
+    <scatterPalette>GreenRed</scatterPalette>
+    <gridWidth />
+    <includeZero>global</includeZero>
+  </report>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>User Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Date</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Time</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Application</name>
+    <label>Application</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Application</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Computer Name</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Operation</name>
+    <label>Operation</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Operation</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Detail File Size MB</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Drive Type</name>
+    <label>Source Drive Type</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Drive Type</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File Extension</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination Drive Type</name>
+    <label>Destination Drive Type</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination Drive Type</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination Directory</name>
+    <label>Destination Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File</name>
+    <label>Destination File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File Extension</name>
+    <label>Destination File Extension</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination File Extension</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <condition>
+    <name>Agent Local Date</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2013-07-25T00:00:00.000,2013-07-25T23:59:59.997</value>
+    <visible>true</visible>
+    <label>Agent Local Date</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>'DAC5776B-4E56-4A24-897A-F45044E0B012', '4916428F-31EF-46F7-AEB5-F4AD63228D36', '1B9C3580-F485-9F4F-859E-6142FF1B968D', '53C1326D-6F4C-1445-BC0A-5989CE4905ED', '3F637B9F-E3C2-AA42-9A61-60887AC978EF', '57818939-0B02-064E-8ACF-12FD271F22E4', 'ACB47DF7-7D98-4BBC-997D-5DE6C6D77799', '6063CC65-90B4-E244-B346-E2C4042E4FB2', '0244141E-F46C-944A-BAAE-05E0B2E2721B', '37A7A5AD-6B70-534C-A911-587E62B269F3', '0236FFD0-6635-A44E-BA8D-10A8851B3454', 'E58F2880-B3CF-464D-999F-93558EA038E2', '487288C9-BB0B-4E42-825E-F88594B36FE1', '266BE8CB-953C-6E47-A662-1D8BF4A6AF95', 'D55AAD54-808D-DF46-8906-0A853980CFBF', '413047D6-B682-8A43-ACF9-8761E26F65C5', 'EF1819B2-571E-E241-98F2-1CD7F772B068', 'C212B197-45E9-E347-9842-97E6F8054E2E', '9116049A-3D4F-C14A-9A2F-DD97EA975806', 'B7CBDB16-778B-4847-9E39-6EE7255246FF', '90437140-0B9C-BB43-A120-0778993C265C', 'B4465ED3-2FF0-4ECB-8FBE-7BA8D5F91540', '6DC94C6B-BAEC-D84D-B699-77D425D27ED9', '2FFE70E3-1734-1741-B46D-BE14AC3224D9', 'BCF72669-438B-4FA4-BAA0-F6989586F2F6', '1B6BBC86-3D1C-B44B-8062-020ED7374AA4', '094ECD31-82AD-414E-B5F3-FE91E21ECE51', '81790C70-81EE-4A45-A6F0-24C6D279D541', 'BE05FDB8-57D0-344D-9614-61B360E0C730', '8EA14FE7-C772-A341-8B96-BA3C098B4E36', '5AC53CCA-C35F-524B-997C-537867193539', '2A0CA857-A558-6C4B-9769-A5562EAABA44', '69B95C5D-B210-C743-9FA5-B4E31866BB6C', '254E6D91-F443-1244-80A3-9E6DBA560A0A', '6F3E601D-F1EA-A942-AA01-7CCBC8F7AFFC', '7FDE5173-D693-4D4D-9A54-DB4DA3AE4A81', '328D8524-8103-6A47-87D6-D88BD017BBF7', '9BED7F93-109C-DA4F-A168-A6E5B0B38E6B', '7EC1AB87-7036-4930-90BE-1E26B591AB5C', '723E1E2E-42EA-4FC2-91F7-92C9DA6C8A0B', '9F51E209-D4AA-4044-B98B-29A98D5E9B80', '96F78D44-761F-5848-BB88-67C0F8447F6F'</value>
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Computer Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>Computer Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Name Text</name>
+    <is>1</is>
+    <operation>like</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>User Name Text</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <order>
+    <name>User Name</name>
+    <label>User Name</label>
+    <direction>ascending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <order>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <direction>descending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <userReport>
+    <name>Exit Interview - Removable Details</name>
+    <description />
+    <access>Everyone</access>
+    <dateType>Range</dateType>
+    <dateRange>Last7Days</dateRange>
+  </userReport>
+</report><report>
+  <report>
+    <name>Exit Interview - Removable Details (APPROVED DEVICES)</name>
+    <datasource>events</datasource>
+    <top>All</top>
+    <distinct>true</distinct>
+    <leftjoin>0</leftjoin>
+    <runImmed>true</runImmed>
+    <allowExport>true</allowExport>
+    <csv>true</csv>
+    <excel>true</excel>
+    <records>500</records>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+    <drilldown />
+    <drilldown2 />
+    <reportType>grid</reportType>
+    <chartWidth>400</chartWidth>
+    <chartHeight>400</chartHeight>
+    <chartOrient>horizontal</chartOrient>
+    <chartValueAxis>best</chartValueAxis>
+    <chartType>normal</chartType>
+    <xLabels>true</xLabels>
+    <yLabels>true</yLabels>
+    <chartPalette>Default</chartPalette>
+    <pieLegendPosition>auto</pieLegendPosition>
+    <pieType>normal</pieType>
+    <pieLegend>true</pieLegend>
+    <pieLabels>true</pieLabels>
+    <pieLabelColor>black</pieLabelColor>
+    <piePalette>Corporate</piePalette>
+    <scatterXLabels>true</scatterXLabels>
+    <scatterYLabels>true</scatterYLabels>
+    <scatterLabels>true</scatterLabels>
+    <scatterLabelColor>black</scatterLabelColor>
+    <scatterLegend>false</scatterLegend>
+    <scatterPosition>auto</scatterPosition>
+    <scatterPalette>GreenRed</scatterPalette>
+    <gridWidth />
+    <includeZero>global</includeZero>
+  </report>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>User Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Agent Local Date</name>
+    <label>Agent Local Date</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Date</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Agent Local Time</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Application</name>
+    <label>Application</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Application</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Computer Name</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Operation</name>
+    <label>Operation</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Operation</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Detail File Size MB</name>
+    <label>Detail File Size MB</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Detail File Size MB</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Drive Type</name>
+    <label>Source Drive Type</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Drive Type</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source Directory</name>
+    <label>Source Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File</name>
+    <label>Source File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Source File Extension</name>
+    <label>Source File Extension</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Source File Extension</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination Drive Type</name>
+    <label>Destination Drive Type</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination Drive Type</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination Directory</name>
+    <label>Destination Directory</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination Directory</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File</name>
+    <label>Destination File</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination File</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Destination File Extension</name>
+    <label>Destination File Extension</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Destination File Extension</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>DESTINATION_FRIENDLY_NAME</name>
+    <label>Destination Device Friendly Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>DESTINATION_FRIENDLY_NAME</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <condition>
+    <name>Agent Local Time</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2014-04-21T00:00:00.000,2014-10-21T23:59:59.997</value>
+    <visible>true</visible>
+    <label>Agent Local Time</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>User Group Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>User Group Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Computer Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>Computer Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Destination Drive Type</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <required>0</required>
+    <value>2</value>
+    <visible>true</visible>
+    <label>Destination Drive Type</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>DESTINATION_PRODUCT_ID</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>1633,160d</value>
+    <visible>true</visible>
+    <label>Destination Device Product ID</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <condition>
+    <name>DESTINATION_VENDOR_ID</name>
+    <is>1</is>
+    <operation>equal to</operation>
+    <required>0</required>
+    <value>0951</value>
+    <visible>true</visible>
+    <label>Destination Device Vendor ID</label>
+    <width>200</width>
+    <stringfunc />
+    <stringvalue />
+  </condition>
+  <order>
+    <name>User Name</name>
+    <label>User Name</label>
+    <direction>ascending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <order>
+    <name>Agent Local Time</name>
+    <label>Agent Local Time</label>
+    <direction>descending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <userReport>
+    <name>Exit Interview - Removable Details (APPROVED DEVICES)</name>
+    <description />
+    <access>Everyone</access>
+    <dateType>Selected</dateType>
+    <dateRange>CurrentDay</dateRange>
+  </userReport>
+</report><report>
+  <report>
+    <name>HVA High File Movements After Hours</name>
+    <datasource>events</datasource>
+    <top>All</top>
+    <distinct>true</distinct>
+    <leftjoin>0</leftjoin>
+    <runImmed>false</runImmed>
+    <allowExport>true</allowExport>
+    <csv>true</csv>
+    <excel>true</excel>
+    <records>100</records>
+    <criteriaGroup>and</criteriaGroup>
+    <criteriaFormat />
+    <drilldown />
+    <drilldown2 />
+    <reportType>grid</reportType>
+    <chartWidth>400</chartWidth>
+    <chartHeight>400</chartHeight>
+    <chartOrient>horizontal</chartOrient>
+    <chartValueAxis>best</chartValueAxis>
+    <chartType>normal</chartType>
+    <xLabels>true</xLabels>
+    <yLabels>true</yLabels>
+    <chartPalette>Default</chartPalette>
+    <pieLegendPosition>auto</pieLegendPosition>
+    <pieType>normal</pieType>
+    <pieLegend>true</pieLegend>
+    <pieLabels>true</pieLabels>
+    <pieLabelColor>black</pieLabelColor>
+    <piePalette>Corporate</piePalette>
+    <scatterXLabels>true</scatterXLabels>
+    <scatterYLabels>true</scatterYLabels>
+    <scatterLabels>true</scatterLabels>
+    <scatterLabelColor>black</scatterLabelColor>
+    <scatterLegend>false</scatterLegend>
+    <scatterPosition>auto</scatterPosition>
+    <scatterPalette>GreenRed</scatterPalette>
+    <gridWidth />
+    <includeZero>global</includeZero>
+  </report>
+  <field>
+    <name>User Name</name>
+    <label>User Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>User Name</tooltip>
+    <aggby>false</aggby>
+    <aggfunc />
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <field>
+    <name>Computer Name</name>
+    <label>Computer Name</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Computer Name</tooltip>
+    <aggby>false</aggby>
+  </field>
+  <field>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <width />
+    <visible>true</visible>
+    <icon>false</icon>
+    <tooltip>Total Events</tooltip>
+    <aggby>true</aggby>
+    <aggfunc>count</aggfunc>
+    <aggvalue />
+    <aggoperation />
+  </field>
+  <condition>
+    <name>User Name</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value />
+    <visible>true</visible>
+    <label>User Name</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Operation</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>1,11,12,7,3,22,28</value>
+    <visible>true</visible>
+    <label>Operation</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Destination Drive Type</name>
+    <is>0</is>
+    <operation>equal to</operation>
+    <required>0</required>
+    <value>3</value>
+    <visible>true</visible>
+    <label>Destination Drive Type</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Hour of Day</name>
+    <is>1</is>
+    <operation>one of</operation>
+    <required>0</required>
+    <value>00,1,2,3,4,5,6,7,19,20,21,22,23</value>
+    <visible>true</visible>
+    <label>Before 8AM-After7PM</label>
+    <width>200</width>
+  </condition>
+  <condition>
+    <name>Agent Local Time</name>
+    <is>1</is>
+    <operation>between</operation>
+    <required>0</required>
+    <value>2014-08-07T00:00:00.000,2014-08-07T23:59:59.997</value>
+    <visible>true</visible>
+    <label>Agent Local Time</label>
+    <width>200</width>
+  </condition>
+  <order>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <direction>descending</direction>
+    <byvalue>false</byvalue>
+  </order>
+  <drilldown>
+    <name>Total Events</name>
+    <label>Total Events</label>
+    <drilldown>Forensic</drilldown>
+  </drilldown>
+  <userReport>
+    <name>HVA - High File Movements After Hours - Users</name>
+    <description />
+    <access>Everyone</access>
+    <dateType>Range</dateType>
+    <dateRange>Yesterday</dateRange>
+  </userReport>
+</report></topLevel>
