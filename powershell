@@ -1,0 +1,26 @@
+ Get-Process | Select-Object name,fileversion,productversion,company| Where-Object {$_.company -like '*citrix*'}|Export-Csv -Path 'C:\citrix_process.csv' -NoTypeInformation 
+ 
+# **************
+# script which will loop through a list of computers and copy files up and then run some executables, and finally clean up and start service
+#***************
+$ComputerNames = Get-Content -Path "C:\ConfRecovery\computers.txt"
+ 
+foreach($Computer in $ComputerNames)
+{
+ 
+    try{
+  
+Copy-Item "C:\ConfRecovery\*" -Destination "\\$computer\C$\" -Recurse
+ 
+invoke-command -ComputerName $computer -ScriptBlock { & 'C:\dg1\terminator.exe' 'yourpass'}
+invoke-command -ComputerName $computer -ScriptBlock { & 'C:\dg1\dgsecure.exe'  '-E' 'c:\dg1\config_plain.xml' 'c:\program files\dgagent\config.xml' '-k:yourpass' '-f'}
+Remove-Item \\$computer\c$\dg1 -force -Recurse
+.\psexec \\win10 net start dgservice
+}
+
+catch{
+        Write-Error "Failed to connect to $Computer"
+    }
+    }
+#***********************
+ 
