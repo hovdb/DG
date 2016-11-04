@@ -1,4 +1,7 @@
- Get-Process | Select-Object name,fileversion,productversion,company| Where-Object {$_.company -like '*citrix*'}|Export-Csv -Path 'C:\citrix_process.csv' -NoTypeInformation 
+
+ .\PsExec.exe \\bhovd-vm-w7 -s -h powershell.exe "enable-psremoting" -force
+#***************
+Get-Process | Select-Object name,fileversion,productversion,company| Where-Object {$_.company -like '*citrix*'}|Export-Csv -Path 'C:\citrix_process.csv' -NoTypeInformation 
  
 # **************
 # script which will loop through a list of computers and copy files up and then run some executables, and finally clean up and start service
