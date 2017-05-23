@@ -52,3 +52,22 @@ foreach($Computer in $ComputerNames)
 }
 $AllComputerShares |Select-Object -property PSComputerName,name|Export-Csv -Path 'C:\tools\test7.csv' -NoTypeInformation
  
+####create discovery CSV file for Digital Guardian nDLP#########
+Import-module ActiveDirectory
+import-module ActiveDirectory
+$ComputerNames = Get-ADComputer -Filter {OperatingSystem -NotLike "*Server*"} | Select -Expand Name
+ 
+ 
+Add-Content c:\tools\discovery.csv "description,enable_scan,assigned_appliance,repository_type,server_name,unc_path,server_port,repository_name,codepage,url,query,include_paths,exclude_paths,domain,user_name,password,peak_max_mbps,peak_max_items_per_min,off_peak_max_mbps,off_peak_max_items_per_min,share_owner_email_address,optional_arguments"
+ 
+ 
+foreach($Computer in $ComputerNames)
+{
+    try{
+        Add-Content c:\tools\discovery.csv "$Computer,enable,0,cifs,,\\$Computer\c$,,,,,,,Program Files;Program Files (x86);Windows;Recovery;ProgramData,,,,10,12,15,100,,
+"
+    }
+    catch{
+        Write-Error "Failed to write to file"
+    }
+}
