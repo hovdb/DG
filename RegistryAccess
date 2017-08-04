@@ -1,0 +1,15 @@
+<and>
+  <function name="DG_SetRegistryKeyEvents">
+    <parameters>
+     <!-- You can place a varstring array here with multiple values instead of this single string entry -->
+      <string value="\registry\machine\SOFTWARE\7-Zip" />
+    </parameters>
+  </function>
+  <!-- We want to call the function early and not often. A logon event is one option. -->
+  <in>
+    <evtOperationType/>
+    <list>
+      <constOpLogon/>
+    </list>
+  </in>
+</and>
