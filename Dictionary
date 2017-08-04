@@ -1,0 +1,56 @@
+
+*****ACI Resources****Custom Dictionary ACI******
+<?xml version="1.0" encoding="utf-8"?>
+<Grammars>
+  <Dictionary name="shows_dic">
+    <EntrySet name="shows" case="off">
+      <Entry headword="Sharkweek" />
+      <Entry headword="Game of Thrones" />
+      <Entry headword="Sopranos" />
+      </EntrySet>
+  </Dictionary>
+</Grammars>
+
+*****End********************************************
+
+
+*****Content Pattern Name: tvshows******************
+(?A:shows_dic/shows)
+*****End********************************************
+
+
+*****Rule Syntax************************************
+<and>
+<or>
+ 
+    <or>
+      <greaterThan>
+        <evtSrcFileEntityFrequency name = "tvshows"/>
+        <int value = "0"/>
+      </greaterThan>
+      <greaterThan>
+        <evtDestFileEntityFrequency name = "tvshows"/>
+        <int value = "0"/>
+      </greaterThan>
+      
+    </or>
+   
+  <greaterThan>
+    <evtBufferEntityFrequency name = "tvshows"/>
+    <int value = "0"/>
+  </greaterThan>
+  
+</or>
+ <not>
+      <regExp expr="(.*\@yourdomain\.com|.*\@notherdomain\.com|.*mailboxname.*)" match="all">
+        <evtMailRecipients />
+      </regExp>
+ </not>
+
+<equal>
+    <evtOperationType />
+    <constOpSendMail />
+  </equal>
+</and>
+
+*****End********************************************
