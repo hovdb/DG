@@ -1,0 +1,29 @@
+<and>
+  
+<in>
+        <evtSrcFilePolicyTag/>
+        <list>
+ 	  
+	  	     <string value="DLP_PCI_DATA_HIGH" />
+           <string value="DLP_PCI_DATA_LOW" />
+           <string value="DLP_PCI_DATA_MED" />
+           <string value="DLP_PII_DATA_HIGH" />
+           <string value="DLP_PII_DATA_LOW" />
+           <string value="DLP_PII_DATA_MED" />
+
+       </list>
+</in>
+
+
+ 	
+  <not>
+    <like expr="%[send secure]%">
+      <evtMailSubject />
+    </like>
+  </not>
+  
+  <equal>
+    <evtOperationType />
+    <constOpSendMail />
+  </equal>
+</and>
