@@ -1,0 +1,65 @@
+ 
+<and>
+  <or>
+    <and>
+      <equal>
+        <!-- No need for this rule to trigger -->
+        <bool value="true" />
+        <bool value="false" />
+      </equal>
+      <set>
+        <!--Reset the Credit Card counter -->
+        <varint name="CreditCardCounter" scope="global"/>
+        <int value="0" />
+      </set>     
+      <add>
+        <!--And add 60 minutes to the Timer -->
+        <varint64 name="Timer" scope="global"/>
+        <!--This value is the number of seconds multiplied by 10,000,000 -->
+        <int64 value="36000000000"/>
+      </add>
+      <set>
+        <!--So we will set the Timer to the current time -->
+        <varint64 name="Timer" scope="global"/>
+        <agentCurrentDateTime/>
+      </set>
+      <greaterThan>
+        <!-- We are not within 60 minutes or the timer has not been initialized yet -->
+        <!-- Meaning of syntax: is the 1st argument greater than the 2nd argument? -->
+        <agentCurrentDateTime/>
+        <varint64 name="Timer" scope="global"/>
+      </greaterThan>
+    </and>
+    <and>
+      <greaterThan>
+        <!-- Meaning of syntax: is the 1st argument greater than the 2nd argument? -->
+        <varint name="CreditCardCounter" scope="global"/>
+        <int value="25" />
+      </greaterThan>
+      <add asArray="false">
+        <varint name="CreditCardCounter" scope="global"/>
+        <evtSrcFileEntityFrequency name="cc_custom_any" /> 
+      </add>
+      <lessThan>
+        <!-- We are within 60 minutes? -->
+        <!-- Meaning of syntax: is the 1st argument less than the 2nd argument? -->
+        <agentCurrentDateTime/>
+        <varint64 name="Timer" scope="global"/>
+      </lessThan>
+    </and>
+  </or>
+  <in>
+    <evtDestDriveType />
+    <list>
+      <constDriveRemovable />
+    </list>
+  </in>
+  <in>
+    <evtOperationType />
+    <list>
+      <constOpFileCopy />
+      <constOpFileMove />
+      <constOpFileSaveAs />
+    </list>
+  </in>
+</and>
