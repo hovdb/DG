@@ -1,0 +1,20 @@
+<and>
+
+           <equal>
+			<evtSrcDocPropertyString name="Company" />
+			<string value="OG" />
+	</equal>
+    
+    <not>
+        <like expr="%approvedurl.com%">
+            <evtDomain/>
+        </like>
+    </not>
+    <in>
+        <evtOperationType />
+    		<list>
+      			<constOpFileCopy />
+      			<constOpFileMove />
+         	</list>
+    </in>
+</and>
