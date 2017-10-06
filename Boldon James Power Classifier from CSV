@@ -1,0 +1,328 @@
+## Classification script for Digital Guardian Discovery & Boldon James Power Classifier
+##
+## This Powershell script will read the list of files that are targeted for Classification.
+## It will apply a passed classification to the targeted files using Power Classifier for Files.
+##
+## Arguments passed to this script are:
+##
+## -File: CSV file that contains the list of files matched by Discovery
+##
+## -Labels: (optional) CSV file that contains the equivalence of labels in the format
+##					DigitalGuardianClassification, BoldonJamesClassification
+##			Default file name is: "labels.csv"
+##
+## -Interval: (optional) Display informative progress every [nth] records processed. Default is 1 record.
+##
+## -OutputCSV: (optional) Clones original CSV file, appending the Classification results as last columns.
+##				Default is no output CSV file. It will be located in same directory as CSV file.
+##
+#############################################################################################################
+##
+##	REMEMBER: update the "labels.csv" file to match the Labels in your Classifier Configuration 
+##
+#############################################################################################################
+##
+## Define Parameters used in the script
+param
+(
+	[Parameter(Position=0)]
+	## Input CSV file
+	[string]$Infile,
+	[Parameter(Position=1)]
+	## Labels CSV file
+	[string]$Labels = "labels.csv",	
+	[Parameter(Position=2)]
+	## Create output CSV file
+	[switch]$OutputCSV = $False,	
+	[Parameter(Position=3)]
+	## Display counter every nth records
+	[int]$Interval = 1
+)
+## The LogWrite function writes to the Log file passed as a parameter the following:
+## -the arguments passed to the script
+## -the user account that launched the script
+## -errors
+Function LogWrite
+{
+	Param([string]$logstring)
+	$now = Get-Date -Format "ddd MM/dd/yyyy HH:mm:ss.ff"
+	Add-Content $Logfile "$now $logstring"
+}
+##
+## The LogEvent function writes to the Windows/Application Event Log
+Function LogEvent
+{
+	param (
+		[Parameter(Position=0)]
+		[string]$EventId,
+		[Parameter(Position=1)]
+		[string]$EventType,
+		[Parameter(Position=2)]
+		[string]$EventData
+	)
+	Write-EventLog -EventId $EventId -EntryType $EventType -LogName Application -Source $eventSource -Message "$EventData" -Category 0
+}
+##
+## Uncomment next line to trace PowerShell execution
+## Set-PSDebug -Trace 2 
+##
+##############################################################
+##
+##	Table of classification equivalences
+##
+##	"Digital Guardian Classification" = "Boldon James Classification"
+##	(any label not found in this table will be rejected)
+##
+##############################################################
+##
+$valores = @{}
+## 
+## Check if Labels file exist or is accessible
+if (Test-Path $Labels) {
+	# if file exists extract lables and populate equivalence values
+	$equivalences = Import-CSV $Labels
+	Foreach ($equivalence in $equivalences) {
+		$valores.add(($equivalence."Digital Guardian").Trim(), ($equivalence."Boldon James").Trim())
+	}
+}
+else {
+	$errorMsg = "File `"$Labels`" cannot be located"
+	LogEvent 700 Error "$errorMsg"
+	Write-Host "`n$errorMsg"
+	Write-Host "Script execution cannot continue`n"
+	Exit -1
+}
+## 
+## Counter of records
+$nrecords = 0
+$rejected = 0
+##
+## Event Source
+$eventSource = "Digital Guardian Classification"
+##
+## ======== Following lines are dependent on CSV structure ======== ##
+## Required CSV columns (spaces must be removed in this list)
+$AccessPath = "FilePath"
+$FileName = "FileName"
+$Classification = "Policy"
+## ======== Above lines are dependent on CSV structure ======== ##
+##	
+##############################################################
+##
+##						MAIN LOGIC
+##
+###############################################################
+##
+## Check if Event Source exists, otherwise create it
+if (![diagnostics.eventlog]::SourceExists($eventSource)) {
+	[diagnostics.EventLog]::CreateEventSource($eventSource, "Application")
+}
+##
+## Check if a File string was passed as argument
+if ([string]::IsNullOrWhitespace($Infile)) {
+	Write-Host "`nScript calling syntax is:"
+	$myname = $MyInvocation.MyCommand.Name
+	Write-Host "$myname [-Infile] CSVinput [-Outfile] [-Interval n]`n"
+	LogEvent 701 Error "CSV input file name not passed"
+	Exit -1
+}
+else { 
+	LogEvent 702 Information "Script started for file $Infile"
+	Write-Host "Input file is $Infile"
+}
+##
+## Import Power Classifier for Files 
+Import-Module PowerClassifierForFiles
+if( -not $? ) {
+	$errorMsg = "$Error"
+	LogEvent 703 Error "$errorMsg"
+	Write-Host "`n$errorMsg"
+	Write-Host "Script execution cannot continue`n"
+	Exit -1
+}
+else { LogEvent 704 Information "Power Classifier for Files successfully loaded" }
+##
+## Check existence of CSV file
+if (Test-Path $Infile) {
+	# if file exists extract file path to be used for Log and Unknown files
+	$fpath = Split-Path $Infile -Resolve
+	if (!$fpath.EndsWith("\")) { $fpath += "\"; }
+}
+else {
+	$errorMsg = "File `"$Infile`" cannot be located"
+	LogEvent 705 Error "$errorMsg"
+	Write-Host "`n$errorMsg"
+	Write-Host "Script execution cannot continue`n"
+	Exit -1
+}
+##
+## Create Error-Log filename and Unknown-Label-CSV fileName
+## These files will be located in the same directory as CSV file
+$timenow = Get-Date -Format "yyyyMMdd-HHmmss"
+$Logfile = $fpath + "Error-" + $timenow + ".log"
+$Unknown = $fpath + "Unknown-" + $timenow + ".csv"
+$fullpath = $fpath+$Infile
+LogEvent 706 Information "Error log file is $Logfile"
+Write-Host "Error log file is $Logfile"
+Write-Host "Rejected records will be written onto $Unknown"
+##
+## If output CSV file is requested, create it in the same directory where input CSV resides
+if ($OutputCSV) {
+	$basename = gci "$fullpath" | % {$_.BaseName}
+	$Outfile = $fpath + $basename + "-" + $timenow + ".csv"
+	Write-Host "Output CSV file is $Outfile"
+}
+##
+## Display CSV file size in bytes and calculate number of records
+$filesize = (gci "$fullpath").length
+$formatted = "{0:N0}" -f $filesize
+$average = [math]::round($filesize/814, 0) - 1
+$infoMsg = "$fullpath file size is $formatted bytes (approximately $average records)"
+LogEvent 707 Information "$infoMsg"
+Write-Host "`n$infoMsg"
+##
+## We will use .NET method File.Readline rather than Import-CSV so file 
+## will be read line by line rather than loading the whole file into memory
+##
+## Open CSV using .NET FileStream and StreamReader methods to avoid locking file
+$Error.Clear()
+Try { $handle = New-Object IO.FileStream $fullpath, ([IO.FileMode]::Open), ([IO.FileAccess]::Read), ([IO.FileShare]::Read) }
+Catch {
+	$errorMsg = "$Error"
+	LogEvent 708 Error "$errorMsg"
+	Write-Host "`n$errorMsg"
+	Write-Host "Script execution cannot continue`n"
+	Exit -1	
+}
+$Error.Clear()
+Try { $reader = New-Object IO.StreamReader $handle }
+Catch {
+	$errorMsg = "$Error"
+	LogEvent 709 Error "$errorMsg"
+	Write-Host "`n$errorMsg"
+	Write-Host "Script execution cannot continue`n"
+	Exit -1	
+}
+##
+## Log start of processing
+LogWrite "Processing started"
+##
+## Read first line (it must be the headers)
+## Create array with column header names
+$hdr = (($csvline = $reader.Readline())).Split(",").Trim()
+##
+## Sanitize names (remove all non-alphanumeric characters)
+$hdr = $hdr -replace '[^a-zA-Z]', ''
+## Replace null values by valid column names or rename duplicate names
+for ($i = 0; $i -lt $hdr.length; $i++) {
+	if ($hdr[$i].length -eq 0) { $hdr[$i] = "Null"+$i }
+    ##
+	## Check if column name already exists to avoid duplicated fields
+	if ($i -eq 0) { Continue } #Skip first column.
+    # If in any previous column, give it a generic header name
+    if ($hdr[0..($i-1)] -contains $hdr[$i]) {
+        $hdr[$i] += "$i"
+    }	
+}
+##
+## ======== Following lines are dependent on CSV structure ======== ##
+## Check if AccessPath and Classification exists as headers
+if (!($hdr -contains $AccessPath -And $hdr -contains $Classification)) {
+	$reader.Close()
+	$errorMsg = "File `"$Infile`" does not have a valid CSV format"
+	LogEvent 710 Error "$errorMsg"
+	Write-Host "`n$errorMsg"
+	Write-Host "$csvline"
+	Write-Host "Script execution cannot continue`n"
+	Exit -1
+}
+## Write column header names into Unknown CSV file
+else { 
+	Set-Content "$Unknown" "$csvline" 
+}
+## ======== Above lines are dependent on CSV structure ======== ##
+##
+## If output CSV file write column header and append new column for classification result
+if ($OutputCSV) {
+	$csvline += ",Error,`"Classification Result`""
+	Set-Content "$Outfile" "$csvline"
+}
+##
+## Loop through remaining lines in CSV-File
+## Terminate execution when enf of file is found
+while ($null -ne ($csvline = $reader.ReadLine())) {
+	## Increase line counter
+	$nrecords++
+	##
+	## Write record number into console only when divided by interval doesn't yield remainder
+	if (($nrecords % $Interval) -eq 0) {
+		Write-Host "Processing record: $nrecords"
+	}
+	##
+	## Read new line and split into hash table
+	$record = ConvertFrom-CSV -Input $csvline -Header $hdr
+	##
+	## If FileName is empty then skip classification
+	if (($record.$FileName).Trim() -eq "") { continue }
+	##
+	## Check if DG classification exists in table
+	## if not then write record onto Unknown CSV file 
+	$newLabel = ""
+	foreach ($valor in $valores.GetEnumerator()) {
+		if (($record.$Classification) -Like ($valor.name+'*')) {
+			$newLabel = $valor.value
+			break
+		}
+	}
+	if ($newLabel -eq "") {
+		Add-Content "$Unknown" "$csvline"
+		$rejected++
+	}
+	## If there is an equivalent classification label then
+	## classify selected file. Log error if any found
+	else {
+		$Error.Clear()
+		$status = ""
+		##
+## ======== Following lines are dependent on CSV structure ======== ##
+		## Replace all double backslash (\\) in AccessPath by single backslash (\)
+		## Build Target file name as follows:
+		## \\AccessPath\FileName
+		$fp = ($record.$AccessPath).replace("\\","\")
+		$targetfile = "\\"+$fp+"\"+($record.$FileName)
+## ======== Above lines are dependent on CSV structure ======== ##
+		##
+		## Call Power Classifier to classify selected file
+		Try { 
+			$setlabel = Set-Classification -TextLabel "$newLabel" -FileList "$targetfile" -UseADSMarking
+			$status = $setlabel.status
+		}
+		Catch { $status = "$Error" }
+		$status = $status -replace "`t|`n|`r",""
+		if ($status -ne "Label written successfully") {
+			$csvline += ",1"
+			LogWrite "File: $targetfile Label: $newlabel Error: $status"
+		}
+		else { $csvline += ",0" }
+		##
+		## If output CSV file copy CSV record append classification result
+		if ($OutputCSV) {
+			$csvline += ",`"$status`""
+			Add-Content "$Outfile" "$csvline"
+		}
+	}
+}
+##
+## Delete unknown CSV file if no records were written
+if ($rejected -eq 0) { Remove-Item "$Unknown" }
+##
+## Log end of processing
+LogWrite "Processing finished"
+##
+## Close input CSV file and terminate
+$reader.Close()
+$infoMsg = "$nrecords records processed"
+LogEvent 720 Information "$infoMsg"
+Write-Host "`n$infoMsg"
+Write-Host "Script execution complete`n"
+Exit 0
