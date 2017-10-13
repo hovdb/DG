@@ -114,8 +114,14 @@ $Classification = "Policy"
 ###############################################################
 ##
 ## Check if Event Source exists, otherwise create it
-if (![diagnostics.eventlog]::SourceExists($eventSource)) {
-	[diagnostics.EventLog]::CreateEventSource($eventSource, "Application")
+$sources = (Get-ChildItem HKLM:\SYSTEM\CurrentControlSet\Services\EventLog\Application).pschildname
+if (-not $sources.contains($eventSource)) {
+	$layers = "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
+	$eventexe = "c:\windows\system32\eventcreate.exe"
+	New-ItemProperty -Path $layers -Name $eventexe -Value "RUNASADMIN" -Force | Out-Null
+	cmd /c "$eventexe" @('/T', 'Information', '/ID', '700', '/L', 'Application', '/SO', $eventSource, '/D', '"Event Source created"')
+	Remove-ItemProperty -Path $layers -Name $eventexe | Out-Null
+	Write-Host "Event Source '$eventSource' was created"
 }
 ##
 ## Check if a File string was passed as argument
