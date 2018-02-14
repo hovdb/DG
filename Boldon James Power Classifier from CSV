@@ -300,7 +300,7 @@ while ($null -ne ($csvline = $reader.ReadLine())) {
 		##
 		## Call Power Classifier to classify selected file
 		Try { 
-			$setlabel = Set-Classification -TextLabel "$newLabel" -FileList "$targetfile" -UseADSMarking
+			$setlabel = Set-Classification -TextLabel "$newLabel" -FileList "$targetfile" -PreserveTimestamps -UseADSMarking
 			$status = $setlabel.status
 		}
 		Catch { $status = "$Error" }
